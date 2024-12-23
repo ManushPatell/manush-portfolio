@@ -12,7 +12,7 @@ const Hero = () => {
 
   // Attributes to cycle through
   const attributes = [
-    "Engineer",
+    // "Engineer",
     "Hardware Enthusiast",
     "Programmer",
     "Problem Solver",

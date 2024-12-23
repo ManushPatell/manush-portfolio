@@ -5,7 +5,7 @@ import project4 from "../assets/projects/project-4.jpg";
 
 export const HERO_CONTENT = `I am Manush Patel and this is a test. blha blha blah blah blah blha blh a I am Manush Patel and this is a test. blha blha blah blah blah blha blh a I am Manush Patel and this is a test. blha blha blah blah blah blha blh a I am Manush Patel and this is a test. blha blha blah blah blah blha blh a I am Manush Patel and this is a test. blha blha blah blah blah blha blh a I am Manush Patel and this is a test. blha blha blah blah blah blha blh a I am Manush Patel and this is a test. blha blha blah blah blah blha blh a `;
 
-export const ABOUT_TEXT = `Hello! I'm Manush, a passionate engineering student studying at McMaster University! I'm deeply intrigued by the endless possibilities of technology, whether it’s hardware or software. I love getting hands-on with projects, experimenting with new ideas, and participating in hackathons to collaborate, innovate, and learn! `;
+export const ABOUT_TEXT = `Hello! I'm Manush, a passionate engineering student studying at McMaster University! I enjoy getting hands-on with projects, experimenting with new hardware and software technologies, and participating in hackathons to collaborate, innovate, and learn! `;
 
 export const EXPERIENCES = [
   {
