@@ -46,7 +46,7 @@ const About = () => {
           {/* Email */}
           {/* Email */}
           <a
-            href="mailto:your-email@example.com"
+            href="mailto:manush.patelll@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-75 transition-opacity"

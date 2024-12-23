@@ -39,9 +39,9 @@ const App = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative z-10 container mx-auto px-8">
+      {/* <section id="contact" className="relative z-10 container mx-auto px-8">
         <Contact />
-      </section>
+      </section> */}
     </div>
   );
 };

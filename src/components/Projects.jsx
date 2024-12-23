@@ -17,7 +17,7 @@ const PROJECTS = [
     {
       title: "Hackathon Organizer ",
       description:
-        "Organized and led the first-ever hackathon in the school district with hackathon winnings. Attracted over 200 participants, resulting in a successful event and a 10% increase in tech club enrollment ",
+        "Organized the first-ever hackathon in the school district with hackathon winnings. Attracted over 200 participants, resulting in a successful event and a 10% increase in tech club enrollment ",
       image: mayfield, // Replace with your image path
       technologies: [""],
     },
