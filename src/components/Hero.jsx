@@ -1,4 +1,4 @@
-import { HERO_CONTENT } from "../constants";
+import { HERO_CONTENT, ABOUT_TEXT } from "../constants";
 import profilePic from "../assets/pacificpic2.jpg";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -12,13 +12,11 @@ const Hero = () => {
 
   // Attributes to cycle through
   const attributes = [
-    // "Engineer",
     "Hardware Enthusiast",
     "Programmer",
     "Problem Solver",
     "Tech Innovator",
     "Firmware Developer",
-    
   ];
 
   useEffect(() => {
@@ -27,7 +25,7 @@ const Hero = () => {
 
     const typeText = () => {
       if (currentIndex <= fullText.length) {
-        setDisplayedText(fullText.substring(0, currentIndex)); // Update the displayed text
+        setDisplayedText(fullText.substring(0, currentIndex)); // Update displayed text
         currentIndex++;
         setTimeout(typeText, 150); // Delay between each character
       }
@@ -42,12 +40,12 @@ const Hero = () => {
       setFadeState("hidden"); // Start fade-out
 
       setTimeout(() => {
-        setCurrentWordIndex((prevIndex) => (prevIndex + 1) % attributes.length); // Move to the next word
+        setCurrentWordIndex((prevIndex) => (prevIndex + 1) % attributes.length); // Move to next word
         setFadeState("visible"); // Start fade-in
       }, 500); // Duration of fade-out
     }, 3000); // Total interval duration (display time + fade time)
 
-    return () => clearInterval(interval); // Cleanup on component unmount
+    return () => clearInterval(interval); // Cleanup on unmount
   }, [attributes.length]);
 
   useEffect(() => {
@@ -68,13 +66,13 @@ const Hero = () => {
     };
 
     typeAttribute();
-  }, [currentWordIndex]); // Re-run whenever the word index changes
+  }, [currentWordIndex]); // Re-run when the word index changes
 
   return (
     <div className="w-full max-w-screen-xl mx-auto py-20 px-6 lg:px-12 border-b border-neutral-900">
-      <div className="flex flex-col lg:flex-row items-center justify-between">
+      <div className="flex flex-col lg:flex-row items-center justify-between lg:space-x-12">
         {/* Left Content */}
-        <div className="lg:w-1/2 mb-8 lg:mb-0">
+        <div className="lg:w-1/2 w-full lg:pr-12">
           {/* Typing Animation for "Hi, I'm Manush." */}
           <motion.h1
             initial={{ opacity: 0 }}
@@ -86,31 +84,29 @@ const Hero = () => {
           </motion.h1>
 
           {/* Smooth Transition for Attributes */}
-          <div
-            className="h-8 flex items-center" // Fixed height for the container
-            style={{ minHeight: "2rem" }} // Ensure consistent height
-          >
+          <div className="h-8 flex items-center min-h-[2rem]">
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: fadeState === "visible" ? 1 : 0 }}
               transition={{ duration: 0.5 }}
               className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent text-3xl tracking-tight font-mono"
             >
-              {attributeText} {/* Render the currently typing attribute */}
+              {attributeText}
             </motion.span>
           </div>
 
-          {/* <p className="mt-4 text-lg leading-relaxed text-neutral-400">
-            {HERO_CONTENT}
-          </p> */}
+          {/* About Text */}
+          <p className="mt-4 text-lg leading-loose text-neutral-300 max-w-2xl">
+            {ABOUT_TEXT}
+          </p>
         </div>
 
         {/* Right Content - Image */}
-        <div className="lg:w-1/2 flex justify-center">
+        <div className="lg:w-1/2 w-full flex justify-center">
           <motion.img
             src={profilePic}
             alt="Manush Patel"
-            className="w-80 h-80 object-cover rounded-2xl shadow-lg"
+            className="w-96 h-96 object-cover rounded-2xl shadow-lg" // Increased size
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
@@ -120,5 +116,4 @@ const Hero = () => {
     </div>
   );
 };
-
 export default Hero;

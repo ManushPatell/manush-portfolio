@@ -1,31 +1,80 @@
 import React from "react";
-import resume from "../assets/Website_Resume.pdf";
+import resume from "../assets/websiteresume1.pdf";
 
 const Navbar = () => {
+  const handleScroll = (id) => {
+    if (id === "about") {
+      // Find the "About" section and scroll to its exact position
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        const offset = 1200; // Adjust this to match navbar height
+        const aboutPosition = aboutSection.getBoundingClientRect().top + window.scrollY - offset;
+  
+        window.scrollTo({
+          top: aboutPosition,
+          behavior: "smooth",
+        });
+      }
+      return;
+    }
+  
+    // Normal scrolling for other sections
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Adjust this based on your navbar height
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+  
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+  
+  
   return (
-    <nav className="mb-20 flex items-center justify-end py-6 pr-8">
-      {/* Navigation Links */}
-      <div className="flex gap-8 text-white text-lg font-medium">
-        <a href="#about" className="hover:text-cyan-300 transition-colors">
-          About Me
-        </a>
-        <a href="#projects" className="hover:text-cyan-300 transition-colors">
-          Projects
-        </a>
-        <a href="#skills" className="hover:text-cyan-300 transition-colors">
-          Skills
-        </a>
-        <a
-          href={resume}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-cyan-300 transition-colors"
-        >
-          Resume
-        </a>
-      </div>
+    <nav className="flex items-center space-x-8">
+      <a 
+        href="#about" 
+        onClick={(e) => {
+          e.preventDefault();
+          handleScroll("about");
+        }}
+        className="text-white hover:text-blue-500 transition-colors duration-300 border-b-2 border-transparent hover:border-blue-500 pb-1"
+      >
+        About Me
+      </a>
+      <a 
+        href="#projects" 
+        onClick={(e) => {
+          e.preventDefault();
+          handleScroll("projects");
+        }}
+        className="text-white hover:text-blue-500 transition-colors duration-300 border-b-2 border-transparent hover:border-blue-500 pb-1"
+      >
+        Projects
+      </a>
+      <a 
+        href="#skills" 
+        onClick={(e) => {
+          e.preventDefault();
+          handleScroll("skills");
+        }}
+        className="text-white hover:text-blue-500 transition-colors duration-300 border-b-2 border-transparent hover:border-blue-500 pb-1"
+      >
+        Skills
+      </a>
+      <a 
+        href={resume} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="text-white hover:text-blue-500 transition-colors duration-300 border-b-2 border-transparent hover:border-blue-500 pb-1"
+      >
+        Resume
+      </a>
     </nav>
   );
 };
 
 export default Navbar;
+          
