@@ -1,5 +1,5 @@
 import React from "react";
-import resume from "../assets/websiteresume.pdf";
+import resume from "../assets/ManushsResume.pdf";
 
 const Navbar = () => {
   const handleScroll = (id) => {
