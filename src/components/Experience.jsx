@@ -2,33 +2,48 @@ import { EXPERIENCES } from "../constants";
 
 const Experience = () => {
   return (
-    <div className="border-b border-neutral-900 pb-4">
-      <h2 className="my-20 text-center text-4xl font-bold">Experience</h2>
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="experience" className="relative z-20 container mx-auto px-8 pt-24 pb-12">
+      <h2 className="text-3xl font-bold text-white mb-8" style={{ fontFamily: "'Minecraft', monospace" }}>
+        Experience
+      </h2>
+      <div className="flex flex-col gap-6">
         {EXPERIENCES.map((experience, index) => (
           <div
             key={index}
-            className="mb-8 flex flex-col lg:flex-row items-start text-left lg:justify-start gap-4"
+            className={`flex bg-neutral-900/80 rounded-lg shadow-lg p-6 border-l-8 ${experience.borderColor || "border-purple-700"}`}
+            style={{ minHeight: "120px" }} // optional: ensures cards are at least a certain height
           >
-            {/* Year Column */}
-            <div className="w-full lg:w-1/4 lg:pl-8 mb-4 lg:mb-0">
-              <p className="mb-2 text-sm text-neutral-400">{experience.year}</p>
-            </div>
-
-            {/*Role and Description*/}
-            <div className="w-full lg:w-3/4">
-              <h6 className="mb-2 font-semibold">
-                {experience.role} -{" "}
-                <span className="text-sm text-purple-200">{experience.company}</span>
-              </h6>
-              <p className="text-neutral-400 mb-2">{experience.description}</p>
-
-              {/* Technologies */}
-              <div className="flex flex-wrap">
-                {experience.technologies.map((tech, index) => (
+            <img
+              src={experience.logo}
+              alt={`${experience.company} Logo`}
+              className="w-20 h-20 object-cover rounded mr-6 bg-white"
+            />
+            <div className="flex flex-col flex-1 min-w-0">
+              <div className="flex flex-row justify-between items-start w-full">
+                <h3 className="text-xl font-bold text-white truncate" style={{ fontFamily: "'Minecraft', monospace" }}>
+                  {experience.role} @{" "}
+                  <a
+                    href={experience.companyLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:underline"
+                  >
+                    {experience.company}
+                  </a>
+                </h3>
+                <p className="text-purple-300 text-sm font-semibold ml-6 whitespace-nowrap" style={{ fontFamily: "'Minecraft', monospace" }}>
+                  {experience.dateRange}
+                </p>
+              </div>
+              <p className="text-neutral-300 mt-2 text-base" style={{ fontFamily: "'Minecraft', monospace" }}>
+                {experience.description}
+              </p>
+              <div className="flex flex-wrap mt-2">
+                {experience.technologies.map((tech, i) => (
                   <span
-                    key={index}
-                    className="mr-2 mt-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-800"
+                    key={i}
+                    className="mr-2 mt-2 rounded bg-neutral-800 px-2 py-1 text-sm font-medium text-purple-300"
+                    style={{ fontFamily: "'Minecraft', monospace" }}
                   >
                     {tech}
                   </span>
@@ -38,7 +53,7 @@ const Experience = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

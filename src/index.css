@@ -20,8 +20,9 @@ html {
 }
 
 body {
-  font-family: 'Space Mono', monospace;
-  font-family: "Inter", sans-serif;
+  /* font-family: 'Space Mono', monospace; */
+  /* font-family: "Inter", sans-serif; */
+  font-family: 'Minecraft', monospace;
 }
 
 /* Modal Styling */
@@ -55,4 +56,11 @@ body {
 /* Prevent scrolling when modal is open */
 body.modal-open {
     overflow: hidden;
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('../dist/assets/Minecraft.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

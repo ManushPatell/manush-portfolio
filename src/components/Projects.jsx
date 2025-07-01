@@ -122,9 +122,14 @@ const Projects = () => {
   };
 
   return (
-    <div className="w-full max-w-screen-xl mx-auto py-16 px-6 lg:px-12 border-b border-neutral-900">
+    <div className="relative z-20 container mx-auto px-8 py-16 border-b border-neutral-900">
       {/* Section Title */}
-      <h2 className="text-center text-4xl font-bold mb-12 text-white">Projects</h2>
+      <h2
+  className="text-3xl font-bold mb-12 text-white text-left"
+  style={{ fontFamily: "'Minecraft', monospace" }}
+>
+  Projects
+</h2>
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
