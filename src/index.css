@@ -60,7 +60,7 @@ body.modal-open {
 
 @font-face {
   font-family: 'Minecraft';
-  src: url('../dist/assets/Minecraft.otf') format('truetype');
+  src: url('./assets/Minecraft.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
