@@ -10,7 +10,6 @@ import camera from "../assets/deltacamera.jpg";
 import first from "../assets/firstresponder.jpg";
 import code from "../assets/driverinterfacee.png";
 import ramp from "../assets/ramp.jpg";
-import { article } from "framer-motion/client";
 import powerpoint from "../assets/powerpoint.pdf";
 
 const PROJECTS = [
@@ -18,73 +17,56 @@ const PROJECTS = [
     title: "CAN Bus Load Calculator",
     shortDescription: "Calculates CAN bus load for optimal performance.",
     details:
-      "Developed a tool to calculate the load on a CAN bus to ensure optimal performance and avoid overloading. The tool takes into account various parameters such as message frequency, data length, and bus speed.\n Check out my article explaining this: ",
-    articleLink: "https://macformula.github.io/racecar/firmware/can-traffic/", // Added article link
-    media: [
-      { type: "image", src: car_logo },
-    ],
+      "Developed a tool to calculate the load on a CAN bus to ensure optimal performance and avoid overloading...",
+    articleLink: "https://macformula.github.io/racecar/firmware/can-traffic/",
+    media: [{ type: "image", src: car_logo }],
     technologies: ["CAN Bus", "Python"],
   },
   {
     title: "Simulink Models to C++ Firmware",
     shortDescription: "Converted Simulink models to C++ for embedded systems.",
     details:
-      " Refactored vehicle firmware by transitioning from Simulink models to C++, integrating it into the main repository to optimize compile times and streamline development",
+      "Refactored vehicle firmware by transitioning from Simulink models to C++...",
     articleLink: powerpoint,
-    media: [
-      { type: "image", src:  code },
-      { type: "image", src: driver_interface },
-    ],
+    media: [{ type: "image", src: code }, { type: "image", src: driver_interface }],
     technologies: ["Simulink", "C++", "Firmware"],
   },
   {
-    title: "NavAid (Delta Hacks)",
+    title: "NavAid",
     shortDescription: "Braille system for the deaf and blind to navigate streets.",
     details:
-      "NavAid is a project developed during DeltaHacks that enables deaf and blind individuals to interpret street signs and navigate urban environments through a tactile Braille system. The device processes live camera input, extracts relevant text using OCR and AI filtering, and converts it into physical Braille characters, allowing users to read their surroundings in real-time.",
+      "NavAid is a project developed during DeltaHacks that enables deaf and blind individuals to navigate streets safely...",
     articleLink: "https://devpost.com/software/nav-aid",
     github: "https://github.com/HiThereBoss/DHXI",
-
-    media: [
-      { type: "image", src: camera },
-      { type: "image", src: circuit },
-    ],
-
+    media: [{ type: "image", src: camera }, { type: "image", src: circuit }],
     technologies: ["Raspberry Pi", "Circuitry", "Accessibility"],
   },
   {
-    title: "Route Optimizer for First Responders (Geese Hacks)",
+    title: "Route Optimizer for First Responders",
     shortDescription: "Optimizes routes for emergency vehicles.",
     details:
-      "This project optimizes emergency dispatch by using BigQuery to process incoming calls and assign them to the closest available responders based on location and availability. Integrated with Google APIs, it minimizes the need for manual communication between dispatchers and first responders, reducing delays and improving response times",
-     articleLink: "https://devpost.com/software/route-optimizer-for-first-responders",
-      github: "https://github.com/ManushPatell/Geesehacks",
-    media: [
-      { type: "image", src: first },
-
-    ],
+      "This project optimizes emergency dispatch by using BigQuery to process incoming calls...",
+    articleLink: "https://devpost.com/software/route-optimizer-for-first-responders",
+    github: "https://github.com/ManushPatell/Geesehacks",
+    media: [{ type: "image", src: first }],
     technologies: ["Python", "BigQuery", "Google Cloud"],
   },
   {
     title: "Sudoku Solver",
     shortDescription: "Solves any size sudoku using backtracking.",
     details:
-      "This project implements a backtracking algorithm to efficiently solve any NxN Sudoku puzzle. It leverages recursion and constraint propagation techniques to quickly arrive at solutions. Includes optimization techniques to handle large grids.",
+      "This project implements a backtracking algorithm to efficiently solve any NxN Sudoku puzzle...",
     github: "https://github.com/ManushPatell/Sudoku-Solver",
-    media: [
-      { type: "image", src: sudoku_logo },
-    ],
+    media: [{ type: "image", src: sudoku_logo }],
     technologies: ["C", "Git"],
   },
   {
     title: "Airport Lugagge Mechanism",
     shortDescription: "Design Studio Project.",
     details:
-      "Our project improves airport baggage handling with a rotary-actuated ramp that uses retraction for smooth luggage transfer. We designed the system using CAD modeling, brought it to life with 3D printing, and programmed a Q-Arm robot to handle the luggage efficiently. By reducing mishandling and improving reliability, our solution helps airports to minimize lost luggage incidents",
+      "Our project improves airport baggage handling with a rotary-actuated ramp...",
     articleLink: "https://www.notion.so/International-Airport-16c834c6c5ae81419da7d2b091ceea37",
-    media: [
-      { type: "image", src: ramp },
-    ],
+    media: [{ type: "image", src: ramp }],
     technologies: ["Event Planning", "Leadership"],
   },
 ];
@@ -94,44 +76,31 @@ const Projects = () => {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
 
   useEffect(() => {
-    if (selectedProject) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    document.body.style.overflow = selectedProject ? "hidden" : "auto";
+    return () => (document.body.style.overflow = "auto");
   }, [selectedProject]);
 
   const handleNext = () => {
     setCurrentMediaIndex((prevIndex) =>
-      selectedProject
-        ? (prevIndex + 1) % selectedProject.media.length
-        : prevIndex
+      selectedProject ? (prevIndex + 1) % selectedProject.media.length : prevIndex
     );
   };
 
   const handlePrev = () => {
     setCurrentMediaIndex((prevIndex) =>
-      selectedProject
-        ? (prevIndex - 1 + selectedProject.media.length) %
-          selectedProject.media.length
-        : prevIndex
+      selectedProject ? (prevIndex - 1 + selectedProject.media.length) % selectedProject.media.length : prevIndex
     );
   };
 
   return (
     <div className="relative z-20 container mx-auto px-8 py-16 border-b border-neutral-900">
-      {/* Section Title */}
       <h2
-  className="text-3xl font-bold mb-12 text-white text-left"
-  style={{ fontFamily: "'Minecraft', monospace" }}
->
-  Projects
-</h2>
+        className="text-3xl font-bold mb-12 text-white text-left"
+        style={{ fontFamily: "'Minecraft', monospace" }}
+      >
+        Projects
+      </h2>
 
-      {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {PROJECTS.map((project, index) => (
           <div
@@ -142,7 +111,6 @@ const Projects = () => {
               setCurrentMediaIndex(0);
             }}
           >
-            {/* Project Image */}
             <div className="mb-4">
               <img
                 src={project.media[0].src}
@@ -150,8 +118,6 @@ const Projects = () => {
                 className="w-full h-56 object-cover rounded-lg"
               />
             </div>
-
-            {/* Project Info */}
             <h6 className="text-xl font-bold text-white mb-2">{project.title}</h6>
             <p className="text-neutral-400 mb-4">{project.shortDescription}</p>
             <div className="flex flex-wrap gap-2">
@@ -165,28 +131,28 @@ const Projects = () => {
         ))}
       </div>
 
-      {/* Full-Screen Modal */}
+      {/* Modal */}
       {selectedProject && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-6 z-50 transition-opacity animate-fade-in"
+          className="fixed inset-0 bg-black/90 flex items-center justify-center p-4 z-50 overflow-y-auto"
           onClick={() => setSelectedProject(null)}
         >
-          <div
-            className="bg-neutral-900 text-white rounded-lg max-w-6xl w-full p-10 relative flex flex-col lg:flex-row shadow-xl"
+         <div
+          className="bg-neutral-900 text-white rounded-lg w-full max-w-4xl h-[80vh] overflow-y-auto relative flex flex-col lg:flex-row shadow-xl"
             onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              className="absolute top-5 right-5 text-white text-xl hover:scale-110 transition-transform"
-              onClick={() => setSelectedProject(null)}
-            >
-              <X size={24} />
-            </button>
+        >
 
-            {/* Left Section: Text */}
+           <button
+            className="absolute top-8 sm:top-10 right-5 text-white text-xl hover:scale-110 transition-transform z-50"
+            onClick={() => setSelectedProject(null)}
+          >
+            <X size={24} />
+          </button>
+
+
             <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center">
               <h3 className="text-4xl font-bold mb-6">{selectedProject.title}</h3>
-              <p className="text-neutral-300 mb-6 text-lg">{selectedProject.details}</p>
+              <p className="text-neutral-300 mb-6 text-lg whitespace-pre-line">{selectedProject.details}</p>
               <div className="flex flex-wrap gap-3 mb-6">
                 {selectedProject.technologies.map((tech, index) => (
                   <span key={index} className="bg-purple-900 text-white text-sm py-2 px-3 rounded">
@@ -194,14 +160,13 @@ const Projects = () => {
                   </span>
                 ))}
               </div>
-              {/* Links Section */}
               <div className="flex flex-col gap-4">
                 {selectedProject.articleLink && (
                   <a
                     href={selectedProject.articleLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-blue-400 hover:underline text-lg"
+                    className="text-blue-400 hover:underline text-lg"
                   >
                     Read Article
                   </a>
@@ -220,9 +185,7 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Right Section: Larger Image Area */}
             <div className="w-full lg:w-1/2 relative flex items-center justify-center border border-neutral-700 rounded-lg p-4 bg-black">
-              {/* Left Arrow */}
               {selectedProject.media.length > 1 && (
                 <button
                   className="absolute left-4 bg-gray-800 p-3 rounded-full text-white hover:bg-gray-700 transition-transform"
@@ -232,14 +195,12 @@ const Projects = () => {
                 </button>
               )}
 
-              {/* Image */}
               <img
                 src={selectedProject.media[currentMediaIndex].src}
                 alt="Project media"
                 className="w-full max-h-[500px] object-contain rounded-lg"
               />
 
-              {/* Right Arrow */}
               {selectedProject.media.length > 1 && (
                 <button
                   className="absolute right-4 bg-gray-800 p-3 rounded-full text-white hover:bg-gray-700 transition-transform"

@@ -12,18 +12,6 @@ import Experience from "./components/Experience";
 
 
 
-const WhatAmIWorkingOn = () => {
-  return (
-    <div className="relative z-10 container mx-auto px-8" style={{ top: "-96px" }}>
-      <div className="bg-gradient-to-r from-purple-900 to-indigo-900 p-6 rounded-lg shadow-lg border border-purple-700/50">
-        <h3 className="text-xl font-bold text-white mb-2">What Am I Working On?</h3>
-        <p className="text-neutral-200">
-          Building an assistive technology solution to empower individuals with Usher syndrome to live more independently.
-        </p>
-      </div>
-    </div>
-  );
-};
 
 const App = () => {
 
@@ -37,26 +25,12 @@ const App = () => {
   return (
     <div className="relative bg-transparent">
       <Background />
-      <div className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-sm py-4">
-        <div className="flex justify-between items-center"> {/* Removed container and mx-auto */}
-          <div className="flex items-center gap-3 pl-4"> {/* Added pl-4 for minimal spacing from edge */}
-            <img 
-              src={mcmasterCrest} 
-              alt="McMaster University Crest" 
-              className="h-8 w-auto"
-            />
-            <h1
-              className="text-lg text-white font-bold cursor-pointer"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              Manush Patel
-            </h1>
-          </div>
-          <div className="pr-8"> {/* Changed to pr-8 to keep right padding */}
-            <Navbar />
-          </div>
-        </div>
+      
+        <div className="pr-8">
+        <Navbar />
       </div>
+   
+
 
  
 
