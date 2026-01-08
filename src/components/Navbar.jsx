@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import resume from "../assets/ManushsResume.pdf";
+import resume from "../assets/Manush_Patel_Resume.pdf";
 import mcmasterCrest from "../assets/mac-removebg-preview.png";
 import { Menu, X } from "lucide-react"; // Optional
 

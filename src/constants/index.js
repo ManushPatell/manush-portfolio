@@ -8,35 +8,45 @@ export const ABOUT_TEXT = `Computer Engineering @ McMaster University - focused 
 
 export const EXPERIENCES = [
   {
-    role: "Firmware Engineer Intern",
-    company: "Lumatone",
-    companyLink: "https://www.lumatone.io/",
-    dateRange: "May 2025 - Present",
-    logo: lumatone,
-    description: "Designed a sensor-calibrated test bench to validate key pressure hardware",
-    technologies: ["C", "PuTTy", "WinSCP", "BeagleBone"],
-    borderColor: "border-purple-700"
-  },
-  {
     role: "Controls and Firmware Developer",
     company: "Mac Formula Electric",
+    slug: "mac-formula-electric-firmware",
     companyLink: "https://macformularacing.com/",
     dateRange: "Sep 2024 – Present",
     logo: macfe,
     description: "",
-    technologies: ["C/C++", "CAN", "Python","Git", "LaTex"],
-    borderColor: "border-red-700"
+    technologies: ["C/C++", "CAN", "Python", "Git", "LaTeX"],
+    borderColor: "border-red-700",
+    route: "/experience/mac-formula-electric" 
   },
+  
+  
+  {
+    role: "Firmware Engineer Intern",
+    company: "Lumatone",
+    slug: "lumatone-firmware-intern",
+    companyLink: "https://www.lumatone.io/",
+    dateRange: "Apr 2025 - Aug 2025",
+    logo: lumatone,
+    description: "",
+    technologies: ["C", "PuTTy", "WinSCP", "BeagleBone"],
+    borderColor: "border-purple-700",
+    route: "/experience/lumatone" 
+  },
+  
   {
     role: "Software Developer Intern",
     company: "Gerrits Engineering Ltd",
+    slug: "gerrits-software-intern",
     companyLink: "https://www.gerreng.com/",
-    dateRange: "May 2025 – June 2025",
+    dateRange: "Jan 2025 – Mar 2025",
     logo: gerrits,
     description: "",
-    technologies: ["Agentic AI", "Docker", "Javascript"],
-    borderColor: "border-black-700"
+    technologies: ["Agentic AI", "Docker", "JavaScript"],
+    borderColor: "border-black-700",
+    route: "/experience/gerrits"
   },
 ];
+
 
 

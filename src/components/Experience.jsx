@@ -1,16 +1,35 @@
 import { EXPERIENCES } from "../constants";
+// import { useNavigate } from "react-router-dom";
 
 const Experience = () => {
+  // const navigate = useNavigate();
+
   return (
-    <section id="experience" className="relative z-20 container mx-auto px-4 sm:px-8 pt-24 pb-12">
-      <h2 className="text-3xl font-bold text-white mb-8" style={{ fontFamily: "'Minecraft', monospace" }}>
+    <section
+      id="experience"
+      className="relative z-20 container mx-auto px-4 sm:px-8 pt-24 pb-12"
+    >
+      <h2
+        className="text-3xl font-bold text-white mb-8"
+        style={{ fontFamily: "'Minecraft', monospace" }}
+      >
         Experience
       </h2>
       <div className="flex flex-col gap-6">
         {EXPERIENCES.map((experience, index) => (
           <div
-            key={index}
-            className={`flex flex-col sm:flex-row bg-neutral-900/80 rounded-lg shadow-lg p-6 border-l-8 ${experience.borderColor || "border-purple-700"}`}
+  key={index}
+  onClick={() => navigate(experience.route)}
+            /*
+
+            
+  className="cursor-pointer flex flex-col sm:flex-row bg-neutral-900/80 rounded-lg shadow-lg p-6 border-l-8 ..."
+>
+
+            */
+            className={`flex flex-col sm:flex-row bg-neutral-900/80 rounded-lg shadow-lg p-6 border-l-8 cursor-pointer hover:scale-[1.01] transition ${
+              experience.borderColor || "border-purple-700"
+            }`}
           >
             <img
               src={experience.logo}
@@ -19,7 +38,10 @@ const Experience = () => {
             />
             <div className="flex flex-col flex-1 min-w-0">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start w-full">
-                <h3 className="text-lg sm:text-xl font-bold text-white" style={{ fontFamily: "'Minecraft', monospace" }}>
+                <h3
+                  className="text-lg sm:text-xl font-bold text-white"
+                  style={{ fontFamily: "'Minecraft', monospace" }}
+                >
                   {experience.role} @{" "}
                   <a
                     href={experience.companyLink}
@@ -30,11 +52,17 @@ const Experience = () => {
                     {experience.company}
                   </a>
                 </h3>
-                <p className="text-purple-300 text-sm font-semibold mt-1 sm:mt-0 sm:ml-6" style={{ fontFamily: "'Minecraft', monospace" }}>
+                <p
+                  className="text-purple-300 text-sm font-semibold mt-1 sm:mt-0 sm:ml-6"
+                  style={{ fontFamily: "'Minecraft', monospace" }}
+                >
                   {experience.dateRange}
                 </p>
               </div>
-              <p className="text-neutral-300 mt-2 text-sm sm:text-base" style={{ fontFamily: "'Minecraft', monospace" }}>
+              <p
+                className="text-neutral-300 mt-2 text-sm sm:text-base"
+                style={{ fontFamily: "'Minecraft', monospace" }}
+              >
                 {experience.description}
               </p>
               <div className="flex flex-wrap mt-2">
